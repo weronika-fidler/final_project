@@ -1,8 +1,6 @@
-ArrayList<PVector> snake = new ArrayList<PVector>(); // snake body (not included the head)
 boolean [] directions = new boolean[] {false, false, false, false};
-PVector pos; // snake position (position of the head)
-
-PVector dir = new PVector(0, 0); // snake direction (up, down, left right)
+PVector pos; // ship position
+PVector dir = new PVector(0, 0); // ship direction (up, down, left right)
 
 
 void setup(){
@@ -43,3 +41,4 @@ void keyPressed() {
     println();
   }
   }
+}
