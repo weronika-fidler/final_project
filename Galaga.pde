@@ -1,3 +1,10 @@
+ArrayList<PVector> snake = new ArrayList<PVector>(); // snake body (not included the head)
+boolean [] directions = new boolean[] {false, false, false, false};
+PVector pos; // snake position (position of the head)
+
+PVector dir = new PVector(0, 0); // snake direction (up, down, left right)
+
+
 void setup(){
   size(250*3,250*4);
   background(0);
@@ -12,3 +19,27 @@ void setup(){
 }
 void draw(){
 }
+
+void keyPressed() {
+  if (key == CODED){
+  if (keyPressed){
+    if (keyCode == UP) {
+      directions = new boolean[] {true, false, false, false};
+      dir = new PVector(0,-1);
+    }
+    if (keyCode == DOWN) {
+      directions = new boolean[] {false, true, false, false};
+      dir = new PVector(0,1);
+    }
+    if (keyCode == LEFT) {
+      directions = new boolean[] {false, false, true, false};
+      dir = new PVector(-1,0);
+    }
+    if (keyCode == RIGHT) {
+      directions = new boolean[] {false, false, true, false};
+      dir = new PVector(1,0);
+    }
+    for (boolean bool : directions) print(bool + " ");
+    println();
+  }
+  }
