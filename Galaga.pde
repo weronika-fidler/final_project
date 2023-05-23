@@ -6,6 +6,7 @@ float score = 0;
 int phase = 0;
 
 
+
 void setup(){
   size(250*3,250*4);
   background(0);
@@ -18,6 +19,7 @@ void setup(){
   
   Player player = new Player();
 }
+
 void draw(){
 }
 
