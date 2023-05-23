@@ -1,6 +1,9 @@
-boolean [] directions = new boolean[] {false, false, false, false};
-PVector pos; // ship position
-PVector dir = new PVector(0, 0); // ship direction (up, down, left right)
+int[][] map = new int[height/16][width/15];
+int framerate = 20;
+ArrayList<Enemy> test = new ArrayList<Enemy>();
+Player player;
+float score = 0;
+int phase = 0;
 
 
 void setup(){
@@ -22,23 +25,17 @@ void keyPressed() {
   if (key == CODED){
   if (keyPressed){
     if (keyCode == UP) {
-      directions = new boolean[] {true, false, false, false};
-      dir = new PVector(0,-1);
+      
     }
     if (keyCode == DOWN) {
-      directions = new boolean[] {false, true, false, false};
-      dir = new PVector(0,1);
+
     }
     if (keyCode == LEFT) {
-      directions = new boolean[] {false, false, true, false};
-      dir = new PVector(-1,0);
+
     }
     if (keyCode == RIGHT) {
-      directions = new boolean[] {false, false, true, false};
-      dir = new PVector(1,0);
+
     }
-    for (boolean bool : directions) print(bool + " ");
-    println();
   }
   }
 }
