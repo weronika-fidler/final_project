@@ -3,7 +3,6 @@ int framerate = 20;
 ArrayList<Enemy> test = new ArrayList<Enemy>();
 Player player;
 float score = 0;
-int phase = 0;
 
 
 
