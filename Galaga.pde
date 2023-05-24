@@ -1,4 +1,4 @@
-int[][] map = new int[height/16][width/15];
+Entity[][] map = new Entity[height/16][width/15];
 int framerate = 20;
 ArrayList<Enemy> test = new ArrayList<Enemy>();
 Player player;
@@ -15,8 +15,7 @@ void setup(){
   fill(255,0,0);
   text("1UP", 15, 25);
   text("HIGH SCORE", 2* width / 6 , 25);
-  
-  Player player = new Player();
+  player = new Player();
 }
 
 void draw(){
@@ -25,18 +24,16 @@ void draw(){
 void keyPressed() {
   if (key == CODED){
   if (keyPressed){
-    if (keyCode == UP) {
-      
+    if (keyCode == UP) { player.direction = new PVector(0,-1); }
+    if (keyCode == DOWN) { player.direction = new PVector(0,1); }
+    if (keyCode == LEFT) { player.direction = new PVector(-1,0); }
+    if (keyCode == RIGHT) { player.direction = new PVector(1,0); }
+    if (keyCode == UP || keyCode == DOWN || keyCode == LEFT || keyCode == RIGHT){
+      map[(int)player.position.y][(int)player.position.x] = null;
+      player.updatePosition();
+      map[(int)player.position.y][(int)player.position.x] = player;
     }
-    if (keyCode == DOWN) {
-
-    }
-    if (keyCode == LEFT) {
-
-    }
-    if (keyCode == RIGHT) {
-
-    }
+    println(player.position.x + ", " + player.position.y);
   }
   }
 }
