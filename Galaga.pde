@@ -5,7 +5,6 @@ Player player;
 float score = 0;
 
 
-
 void setup(){
   size(750, 1000);
   background(0);
@@ -18,7 +17,11 @@ void setup(){
   player = new Player();
 }
 
+
 void draw(){
+  if(phase = 0){
+    background(0);
+    text("PLAY", 2 * width / 6, length / 4);
 }
 
 void keyPressed() {
