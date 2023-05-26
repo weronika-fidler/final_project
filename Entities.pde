@@ -38,7 +38,8 @@ public class Player extends Entity{
 
   public Player() {
     sprite = loadImage("ship.png");
-    position = new PVector(1000/32, 750/30);
+    sprite.resize(48,0);
+    position = new PVector(map.length/2, map[0].length/2);
     direction = new PVector(0,0);
   }
 }

@@ -1,4 +1,4 @@
-Entity[][] map = new Entity[1000/16][750/15];
+Entity[][] map = new Entity[192*4/15][250*4/16];
 int framerate = 20;
 ArrayList<Enemy> test = new ArrayList<Enemy>();
 Player player;
@@ -7,13 +7,11 @@ PFont bit;
 
 
 void setup(){
-  size(750, 1000);
+  size(192*4, 250*4);
   background(0);
   bit = createFont("bit.ttf", 24);
   textFont(bit);
   fill(255,0,0);
-  text("1UP", 15, 25);
-  text("HIGH SCORE", 2* width / 6 , 25);
   player = new Player();
 }
 
@@ -22,7 +20,13 @@ void draw(){
   if(phase == 0){
     background(0);
     text("> PLAY", 2 * width / 6, height / 4);
-}
+  }
+  if(phase == 1){
+    background(0);
+    text("1UP", 15, 25);
+    text("HIGH SCORE", 2* width / 6 , 25);
+    image(player.sprite, player.position.x * 16, player.position.y * 15);
+  }
 }
 
 void keyPressed() {
