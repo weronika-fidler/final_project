@@ -33,6 +33,12 @@ public class Player extends Entity{
   
   
   void fire(){
+    if (key == ' '){
+      bullets.add(new Bullet);
+      
+    }
+    
+    
   }
   
 
@@ -58,5 +64,6 @@ public class Boss extends Enemy{
 
 public class Bullet extends Entity{
   void hit(){
+    
   }
 }

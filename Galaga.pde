@@ -1,6 +1,7 @@
 Entity[][] map = new Entity[192*4/15][250*4/16];
 int framerate = 20;
 ArrayList<Enemy> test = new ArrayList<Enemy>();
+ArrayList<Bullet> bullets = new ArrayList<Bullet>()
 Player player;
 float score = 0;
 PFont bit;
@@ -26,7 +27,12 @@ void draw(){
     text("1UP", 15, 25);
     text("HIGH SCORE", 2* width / 6 , 25);
     image(player.sprite, player.position.x * 16, player.position.y * 15);
+    for(bullet: bullets){
+      image(bullet.sprite, bullet.position.x * 16, bullet.position.y * 15)
+      
+    }
   }
+  
 }
 
 void keyPressed() {
