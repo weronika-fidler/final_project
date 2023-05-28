@@ -7,6 +7,7 @@ public class Entity{
   }
   public void updatePosition(){
       this.position = new PVector(position.x + direction.x, position.y + direction.y);
+      this.direction = new PVector(0,0);
     }
 }
 
@@ -33,12 +34,10 @@ public class Player extends Entity{
   
   
   void fire(){
-    if (key == ' '){
-      bullets.add(new Bullet);
-      
-    }
-    
-    
+    Bullet temp = new Bullet( "player" );
+    temp.direction = new PVector(0,-1);
+    temp.position = new PVector(this.position.x, this.position.y);
+      bullets.add( temp ) ;
   }
   
 
@@ -63,6 +62,10 @@ public class Boss extends Enemy{
 }
 
 public class Bullet extends Entity{
+  public Bullet(String type){
+    if (type.equals("player")) { sprite = loadImage("playerbullet.png"); }
+    else { sprite = loadImage("enemybullet.png"); }
+  }
   void hit(){
     
   }
