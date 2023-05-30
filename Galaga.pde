@@ -5,15 +5,15 @@ static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 static ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 Player player;
 float score = 0;
-PFont bit;
+PFont textFont;
 
 
 void setup(){
   size(783, 997); // 192 x 250, 4x scale
   background(0);
   frameRate(framerate);
-  bit = createFont("bit.ttf", 25);
-  textFont(bit);
+  textFont = createFont("bit.ttf", 25);
+  textFont(textFont);
   fill(255,0,0);
   player = new Player();
 }
