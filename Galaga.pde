@@ -40,7 +40,12 @@ void draw(){
       temp.hasHit();
     }
   }
-  
+  if(phase == 2){
+    background(0);
+    //text("Continue", x, y);
+    //text("Restart", x, y);
+    //text("Back to Start Screen", x, y);
+  }
 }
 
 void keyPressed() {
