@@ -4,6 +4,7 @@ int framerate = 22;
 static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 static ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 Player player;
+int phase = 0;
 float score = 0;
 PFont textFont;
 
@@ -22,7 +23,9 @@ void setup(){
 void draw(){
   if(phase == 0){
     background(0);
-    text("> PLAY", 2 * width / 6, height / 4);
+    for (int i = 0; i < startMenu.length ; i++){
+      text(startMenu[i], 2 * width / 6, height / 4 + i * 45);
+    }
   }
   if(phase == 1){
     background(0);
@@ -47,6 +50,10 @@ void keyPressed() {
       if (keyCode == LEFT  || key == 'a') { keys[2] = -1; }
       if (keyCode == RIGHT || key == 'd') { keys[3] = 1; }
       if (key == ' ') { player.fire(); }
+  }
+  if  (phase == 0){
+    if (keyCode ==  UP   || key == 'w' || keyCode == DOWN  || key == 's') updateStartMenu();
+    if (keyCode == ENTER || key == ' ') startSelection();
   }
 }
 void keyReleased() {
