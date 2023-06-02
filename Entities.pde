@@ -91,6 +91,9 @@ public class Player extends Entity{
 }
 
 public class Boss extends Enemy{
+  public Boss(String type, String enemycolor){
+    super(type,enemycolor);
+  }
   int hp = 2;
   
   
