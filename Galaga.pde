@@ -21,6 +21,7 @@ void setup(){
 
 
 void draw(){
+                                                                                                               // System.out.println(500+phase);
   if(phase == 0){
     background(0);
     for (int i = 0; i < startMenu.length ; i++){
@@ -42,28 +43,36 @@ void draw(){
   }
   if(phase == 2){
     background(0);
-    //text("Continue", x, y);
-    //text("Restart", x, y);
-    //text("Back to Start Screen", x, y);
+    for (int i = 0; i < pauseScreen.length ; i++){
+      text(pauseScreen[i], 2 * width / 6, height / 4 + i * 45);
+    }
   }
+                                                                                                                // System.out.println(500+phase);
 }
 
 void keyPressed() {
+                                                                                                                System.out.println("keyPressed");
+  if  (phase == 2){
+    if (keyCode ==  UP   || key == 'w' || keyCode == DOWN  || key == 's') updatePauseScreen();
+    if (keyCode == ENTER || key == ' ') pauseSelection();
+  }
     if (phase == 1){
       if (keyCode ==  UP   || key == 'w') keys[0] = -1;
       if (keyCode == DOWN  || key == 's') keys[1] = 1;
       if (keyCode == LEFT  || key == 'a') { keys[2] = -1; }
       if (keyCode == RIGHT || key == 'd') { keys[3] = 1; }
       if (key == ' ') { player.fire(); }
+      if (key == ESC) {key = 0; phase = 2;}
   }
   if  (phase == 0){
     if (keyCode ==  UP   || key == 'w' || keyCode == DOWN  || key == 's') updateStartMenu();
     if (keyCode == ENTER || key == ' ') startSelection();
   }
+                                                                                                                 System.out.println(200000+phase);
 }
 void keyReleased() {
   if (phase == 1){
-      if (keyCode ==  UP   || key == 'w') { keys[0] = 0;  player.direction = new PVector(player.direction.x, 0); }
+      if (keyCode ==  UP   || key == 'w') { keys[0] = 0; player.direction = new PVector(player.direction.x, 0); }
       if (keyCode == DOWN  || key == 's') { keys[1] = 0; player.direction = new PVector(player.direction.x, 0); }
       if (keyCode == LEFT  || key == 'a') { keys[2] = 0; player.direction = new PVector(0, player.direction.y); }
       if (keyCode == RIGHT || key == 'd') { keys[3] = 0; player.direction = new PVector(0, player.direction.y);}
