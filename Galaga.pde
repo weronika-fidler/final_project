@@ -1,4 +1,5 @@
 static int[] keys = new int[4];
+boolean isEnter;
 static Entity[][] map = new Entity[64][47];
 int framerate = 22;
 static ArrayList<Enemy> enemies = new ArrayList<Enemy>();

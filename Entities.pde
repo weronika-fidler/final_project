@@ -12,17 +12,42 @@ public class Entity{
 }
 
 public class Enemy extends Entity{
-  boolean alive = true;
+  boolean alive;
   int hp = 1;
+  public Enemy(String type, String enemycolor){
+    if(type.equals("Boss")) { sprite = loadImage("boss.png"); }
+    else if (enemycolor == "Red")  {sprite = loadImage("redenemy.png"); }
+    else if (enemycolor == "Yellow") {sprite = loadImage("yellowenemy.png");}
+    }
+    
+  }
+
   
   void loop(){
+    ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+    for (int enemy = 0; enemy < enemies.size(); enemy++){
+      if (isEnter = true){
+        Enemy temp = new Enemy("not boss", "blue");
+        temp.position = new PVector(0, 0.33 * height);
+        temp.direction = new PVector(1,0);
+        enemies.add(temp);
+        
+        
+      }
+    }
+    
+    
   }
   
   void fire(){
+    Bullet temp = new Bullet("not player");
+    temp.direction = new PVector(0,-1);
+    temp.position = new PVector(this.position.x, this.position.y);
+    bullets.add(temp);
   }
   
 
-}
+
 
 public class Player extends Entity{
   boolean alive;
