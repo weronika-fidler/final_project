@@ -20,13 +20,12 @@ public class Enemy extends Entity{
     else if (enemycolor == "Yellow") {sprite = loadImage("yellowenemy.png");}
     }
     
-  }
 
   
   void loop(){
     ArrayList<Enemy> enemies = new ArrayList<Enemy>();
     for (int enemy = 0; enemy < enemies.size(); enemy++){
-      if (isEnter = true){
+      if (isEnter == true){
         Enemy temp = new Enemy("not boss", "blue");
         temp.position = new PVector(0, 0.33 * height);
         temp.direction = new PVector(1,0);
@@ -44,6 +43,7 @@ public class Enemy extends Entity{
     temp.direction = new PVector(0,-1);
     temp.position = new PVector(this.position.x, this.position.y);
     bullets.add(temp);
+  }
   }
   
 
