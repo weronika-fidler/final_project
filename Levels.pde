@@ -48,12 +48,25 @@ void updatePauseScreen(){
    onPause = false;
    keys = new int[4];
    isEnter = false;
-   map = new Entity[64][47];
+   map = new Entity[62][47];
    framerate = 22;
    enemies = new ArrayList<Enemy>();
    bullets = new ArrayList<Bullet>();
    score = 0;
    frameRate(framerate);
    player = new Player();
- }
- 
+   for (int i = -1 ; i < 2 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 0));}
+   for (int i = 0 ; i < positionsFree.size(); i++) {
+     PVector pos = positionsFree.get(0);
+     Boss temp = new Boss();
+     temp.position = pos;
+     enemies.add(temp);
+     positionsFree.remove(pos);
+    }
+   for (int i = -2 ; i < 3 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 5));}
+   for (PVector pos : positionsFree){
+     Enemy temp = new Enemy("Yellow");
+     temp.position = pos;
+     enemies.add(temp);
+   }
+}

@@ -8,6 +8,7 @@ Player player;
 int phase;
 float score;
 PFont textFont;
+ArrayList<PVector> positionsFree = new ArrayList<PVector>();
 
 
 void setup(){
@@ -33,7 +34,7 @@ void draw(){
     if (onPause == false){
     text("1UP", 15, 25);
     text("HIGH SCORE", 2* width / 6 , 25);
-    image(player.sprite, player.position.x * 16, player.position.y * 15);
+    image(player.sprite, player.position.x * 16, player.position.y * 15 + 30);
     if (keyPressed) player.move();
     for (int i = 0 ; i < bullets.size() ; i++){
       Bullet temp = bullets.get(i);
@@ -41,7 +42,11 @@ void draw(){
       temp.updatePosition();
       temp.hasHit();
     }
+    for (int i = 0; i < enemies.size() ; i++){
+      Enemy temp = enemies.get(i);
+      image(temp.sprite, temp.position.x * 16, temp.position.y * 15 + 30  );
     }
+  }
   }
   if(phase == 2){
     background(0);
@@ -81,4 +86,7 @@ void keyReleased() {
       if (phase == 1 && onPause == true) {keyCode = TAB; phase = 0; onPause = false;}
       
 }
+}
+static void generateEnemies(){
+    
 }
