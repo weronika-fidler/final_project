@@ -89,8 +89,8 @@ public class Boss extends Enemy{
   public Boss(){
     super("Boss");
     sprite = loadImage("boss.png");
+    hp = 2;
   }
-  int hp = 2;
   
   
   void fire(){
@@ -112,7 +112,7 @@ public class Bullet extends Entity{
     }
   for (int i = 0 ; i < enemies.size() ; i++){
     Enemy temp = enemies.get(i);
-    if ( Math.abs(position.x - temp.position.x) < 2 && Math.abs(position.y - temp.position.y) < 2) {bullets.remove(this); enemies.remove(temp);}
+    if ( Math.abs(position.x - temp.position.x) < 2 && Math.abs(position.y - temp.position.y) < 2) {bullets.remove(this); temp.hp--; if (temp.hp == 0) enemies.remove(temp);}
   }
   }
 }

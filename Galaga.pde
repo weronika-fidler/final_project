@@ -22,7 +22,6 @@ void setup(){
 
 
 void draw(){
-                                                                                                               // System.out.println(500+phase);
   if(phase == 0){
     background(0);
     for (int i = 0; i < startMenu.length ; i++){

@@ -39,7 +39,7 @@ void updatePauseScreen(){
  void pauseSelection(){
    if  (pauseScreen[0].equals(pauseScreen[pauseScreenSelected])) {onPause = false; phase = 1;}
    if  (pauseScreen[1].equals(pauseScreen[pauseScreenSelected])) init();
-   if  (pauseScreen[2].equals(pauseScreen[pauseScreenSelected])) {phase = 0;}
+   if  (pauseScreen[2].equals(pauseScreen[pauseScreenSelected])) frameCount = -1;
    if  (pauseScreen[3].equals(pauseScreen[pauseScreenSelected])) exit();
  }
  
@@ -52,21 +52,32 @@ void updatePauseScreen(){
    framerate = 22;
    enemies = new ArrayList<Enemy>();
    bullets = new ArrayList<Bullet>();
+   ArrayList<PVector> positionsFree = new ArrayList<PVector>();
    score = 0;
    frameRate(framerate);
    player = new Player();
    for (int i = -1 ; i < 2 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 0));}
-   for (int i = 0 ; i < positionsFree.size(); i++) {
+   for (int i = 0 ; i < positionsFree.size(); ) {
      PVector pos = positionsFree.get(0);
      Boss temp = new Boss();
      temp.position = pos;
      enemies.add(temp);
-     positionsFree.remove(pos);
+     positionsFree.remove(0);
     }
-   for (int i = -2 ; i < 3 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 5));}
-   for (PVector pos : positionsFree){
+   for (int i = -2 ; i < 3 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 4));}
+   for (int i = 0 ; i < positionsFree.size(); ) {
+     PVector pos = positionsFree.get(0);
      Enemy temp = new Enemy("Yellow");
      temp.position = pos;
      enemies.add(temp);
-   }
+     positionsFree.remove(0);
+    }
+    for (int i = -2 ; i < 3 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 8));}
+    for (int i = 0 ; i < positionsFree.size(); ) {
+     PVector pos = positionsFree.get(0);
+     Enemy temp = new Enemy("Red");
+     temp.position = pos;
+     enemies.add(temp);
+     positionsFree.remove(0);
+    }
 }
