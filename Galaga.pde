@@ -9,6 +9,7 @@ int phase;
 float score;
 PFont textFont;
 ArrayList<PVector> positionsFree = new ArrayList<PVector>();
+String playerName = "";
 
 
 void setup(){
@@ -32,7 +33,7 @@ void draw(){
     background(0);
     if (onPause == false){
     text("1UP", 15, 25);
-    text("HIGH SCORE", 2* width / 6 , 25);
+    text( (int) score, 15 , 60);
     image(player.sprite, player.position.x * 16, player.position.y * 15 + 30);
     if (keyPressed) player.move();
     for (int i = 0 ; i < bullets.size() ; i++){
@@ -56,9 +57,17 @@ void draw(){
   if(phase == 4){
     
   }
+  if(phase == 5){
+    background(0);
+    text("PLEASE ENTER YOUR NAME", 60, 150);
+    text(playerName, 60, 200);
+  }
 }
 
 void keyPressed() {
+  if (phase == 5){
+    if (key != CODED) {playerName += key; key = TAB;}
+  }
   if  (phase == 2){
     if (keyCode ==  UP   || key == 'w' || keyCode == DOWN  || key == 's') updatePauseScreen();
     if (keyCode == ENTER || key == ' ') pauseSelection();
@@ -71,6 +80,7 @@ void keyPressed() {
       if (keyCode == RIGHT || key == 'd') { keys[3] = 1; }
       if (key == ' ') { player.fire(); }
       if (key == ESC) {key = 0; phase = 2; onPause = true;}
+      if (key == BACKSPACE) phase = 5;
   }
   if  (phase == 0){
     if (keyCode ==  UP   || key == 'w' || keyCode == DOWN  || key == 's') updateStartMenu();
@@ -87,8 +97,9 @@ void keyReleased() {
       if (keyCode == ENTER && onPause == true) {onPause = false; keyCode = TAB; phase = 0;}
       if (phase == 1 && onPause == true) {keyCode = TAB; phase = 0; onPause = false;}
       
+  }
 }
-}
+
 static void generateEnemies(){
     
 }

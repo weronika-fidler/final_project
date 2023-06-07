@@ -20,7 +20,7 @@ public class Score{
     }
 >>>>>>> Stashed changes
   }
-  public String toString(){ return this.score + ": " this.name; }
+  public String toString(){ return this.score + ": " + this.name; }
 }
 
 import java.io.BufferedWriter;
@@ -28,8 +28,8 @@ import java.io.FileWriter;
 import java.io.Writer;
 Writer output;
 
-public void saveScore(Score score){
-  output = new BufferedWriter(new FileWriter("scores.txt",true));
-  output.append(score);
-  output.close;
+public void saveScore(Score score) throws Exception {
+    output = new BufferedWriter(new FileWriter("scores.txt",true));
+    output.append(" "+ score);
+    output.close();
 }
