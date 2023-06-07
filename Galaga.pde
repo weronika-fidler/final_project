@@ -53,6 +53,9 @@ void draw(){
       text(pauseScreen[i], 2 * width / 6, height / 4 + i * 45);
     }
   }
+  if(phase == 4){
+    
+  }
 }
 
 void keyPressed() {

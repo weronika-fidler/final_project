@@ -1,4 +1,4 @@
-String[] startMenu = new String[]{"> PLAY", "EXIT"};
+String[] startMenu = new String[]{"> PLAY", "EXIT", "HIGH SCORES"};
 int startMenuSelected = 0;
 boolean onPause = false;
 
@@ -19,6 +19,7 @@ void updateStartMenu(){
 
    if  (startMenu[0].equals(startMenu[startMenuSelected])) {phase = 1;}
    if  (startMenu[1].equals(startMenu[startMenuSelected])) exit();
+   if  (startMenu[2].equals(startMenu[startMenuSelected])) {phase = 4;}
  }
  
 String[] pauseScreen = new String[]{"> Continue", "Restart", "Back to Start", "Exit"}; 
