@@ -35,7 +35,7 @@ public class Enemy extends Entity{
   
   void fire(){
     Bullet temp = new Bullet("not player");
-    temp.direction = new PVector(0,-1);
+    temp.direction = new PVector(0,1);
     temp.position = new PVector(this.position.x, this.position.y);
     bullets.add(temp);
     }
@@ -112,7 +112,16 @@ public class Bullet extends Entity{
     }
   for (int i = 0 ; i < enemies.size() ; i++){
     Enemy temp = enemies.get(i);
-    if ( Math.abs(position.x - temp.position.x) < 2 && Math.abs(position.y - temp.position.y) < 2) {bullets.remove(this); temp.hp--; if (temp.hp == 0) enemies.remove(temp);}
+    if ( Math.abs(position.x - temp.position.x) < 2 && Math.abs(position.y - temp.position.y) < 2){
+      bullets.remove(this); temp.hp--;
+      if (temp instanceof Boss && temp.hp == 1) temp.sprite = loadImage("bosshit.png");
+      if (temp.hp == 0) {
+        enemies.remove(temp);
+        if(temp.kind == "Yellow") score += 50;
+        if(temp.kind == "Red") score += 80;
+        if(temp.kind == "Boss") score += 200;
+      }
+    }
   }
   }
 }
