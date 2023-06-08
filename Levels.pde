@@ -1,4 +1,4 @@
-String[] startMenu = new String[]{"> PLAY", "EXIT", "HIGH SCORES"};
+String[] startMenu = new String[]{"> PLAY", "EXIT", "SCORES"};
 int startMenuSelected = 0;
 boolean onPause = false;
 
@@ -19,7 +19,11 @@ void updateStartMenu(){
 
    if  (startMenu[0].equals(startMenu[startMenuSelected])) {phase = 1;}
    if  (startMenu[1].equals(startMenu[startMenuSelected])) exit();
-   if  (startMenu[2].equals(startMenu[startMenuSelected])) {phase = 4;}
+   if  (startMenu[2].equals(startMenu[startMenuSelected])) {
+      phase = 4;
+      try{ String content = new String(Files.readAllBytes(Paths.get(sketchPath("") + "\\data\\" + "score.txt"))); outScores = content.split(",");}
+      catch(Exception ex){}
+   }
  }
  
 String[] pauseScreen = new String[]{"> Continue", "Restart", "Back to Start", "Exit"}; 

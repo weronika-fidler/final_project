@@ -10,6 +10,7 @@ float score;
 PFont textFont;
 ArrayList<PVector> positionsFree = new ArrayList<PVector>();
 String playerName = "";
+String[] outScores;
 
 
 void setup(){
@@ -54,19 +55,32 @@ void draw(){
       text(pauseScreen[i], 2 * width / 6, height / 4 + i * 45);
     }
   }
-  if(phase == 4){
-    
+  if (phase == 4){
+    background(0);
+    for (int i = 0 ; i < outScores.length && i < 12 ; i++){
+      text(outScores[i], 60, 75 + i * 50);
+    }
   }
   if(phase == 5){
     background(0);
     text("PLEASE ENTER YOUR NAME", 60, 150);
     text(playerName, 60, 200);
+    text("THEN PRESS ENTER", 150, 450);
   }
 }
 
 void keyPressed() {
   if (phase == 5){
-    if (key != CODED) {playerName += key; key = TAB;}
+    if (key == ESC) key = TAB;
+    if (key == BACKSPACE && playerName.length() > 0) {playerName = playerName.substring(0,playerName.length()-1);}
+    else if (playerName.length() > 0 && key == ENTER) {
+      try{saveScore(new Score(playerName, (int)score));} catch(Exception ex){}
+      frameCount = -1;
+    }
+    else if (key != CODED) {playerName += key; key = TAB;}
+  }
+  if (phase == 4){
+    if (keyCode == ESC || keyCode == BACKSPACE) {frameCount = -1; key = 0;}
   }
   if  (phase == 2){
     if (keyCode ==  UP   || key == 'w' || keyCode == DOWN  || key == 's') updatePauseScreen();
