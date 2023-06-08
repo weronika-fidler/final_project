@@ -1,3 +1,3 @@
 # final-project
 
-#galaga final project for APCS
+galaga final project for APCS
