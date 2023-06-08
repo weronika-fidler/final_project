@@ -47,6 +47,10 @@ void draw(){
       Enemy temp = enemies.get(i);
       image(temp.sprite, temp.position.x * 16, temp.position.y * 15 + 30  );
     }
+    if (score % 1250 == 0){
+      generateEnemies();
+      framerate = framerate + 10;
+    } 
   }
   }
   if(phase == 2){
