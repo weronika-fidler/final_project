@@ -61,4 +61,32 @@ void init(){
    score = 0;
    frameRate(framerate);
    player = new Player();
+<<<<<<< HEAD
+=======
+   generateEnemies();
+   /*for (int i = -1 ; i < 2 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 0));}
+   for (int i = 0 ; i < positionsFree.size(); ) {
+     PVector pos = positionsFree.get(0);
+     Boss temp = new Boss();
+     temp.position = pos;
+     enemies.add(temp);
+     positionsFree.remove(0);
+    }
+   for (int i = -2 ; i < 3 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 4));}
+   for (int i = 0 ; i < positionsFree.size(); ) {
+     PVector pos = positionsFree.get(0);
+     Enemy temp = new Enemy("Yellow");
+     temp.position = pos;
+     enemies.add(temp);
+     positionsFree.remove(0);
+    }
+    for (int i = -2 ; i < 3 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 8));}
+    for (int i = 0 ; i < positionsFree.size(); ) {
+     PVector pos = positionsFree.get(0);
+     Enemy temp = new Enemy("Red");
+     temp.position = pos;
+     enemies.add(temp);
+     positionsFree.remove(0);
+    }*/
+>>>>>>> 60eb45efdb223d900b9c8b741a6c21b32d24ea22
 }
