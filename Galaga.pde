@@ -13,6 +13,7 @@ String playerName = "";
 String[] outScores;
 int frameCounter = 0;
 int shootingInterval = 60;
+static int lowestLevel;
 
 
 void setup(){
