@@ -126,10 +126,11 @@ public class Bullet extends Entity{
     if ( (this.position.y == 0 || this.position.y == 63 )){
       bullets.remove(this);
     }
-  if (this.type.equals("player")){
+  else if (type.equals("enemy") && Math.abs(position.x - player.position.x) < 2 && Math.abs(position.y - player.position.y) < 2) {phase = 5;}
+  else if (this.type.equals("player")){
   for (int i = 0 ; i < enemies.size() ; i++){
     Enemy temp = enemies.get(i);
-    if ( Math.abs(position.x - temp.position.x) < 2 && Math.abs(position.y - temp.position.y) < 2){
+    if ( Math.abs(position.x - temp.position.x) < 2 && Math.abs(position.y - temp.position.y) < 2 && this.type.equals("player")){
       bullets.remove(this); temp.hp--;
       if (temp instanceof Boss && temp.hp == 1) temp.sprite = loadImage("bosshit.png");
       if (temp.hp == 0) {
@@ -137,8 +138,7 @@ public class Bullet extends Entity{
         if(temp.kind == "Yellow") score += 50;
         if(temp.kind == "Red") score += 80;
         if(temp.kind == "Boss") score += 200;
-      }
-      
+      }      
     }
    boolean lowLevel, midLevel, highLevel;
    lowLevel = midLevel = highLevel = false;
@@ -151,21 +151,6 @@ public class Bullet extends Entity{
    if (midLevel == false) lowestLevel = 0;
    if (highLevel == false) lowestLevel = 8;
   }
-  }
-  
-  for (int i = 0 ; i < enemies.size() ; i++){
-    Enemy temp = enemies.get(i);
-    if ( Math.abs(position.x - temp.position.x) < 2 && Math.abs(position.y - temp.position.y) < 2){
-      bullets.remove(this); temp.hp--;
-      if (temp instanceof Boss && temp.hp == 1) temp.sprite = loadImage("bosshit.png");
-      if (temp.hp == 0) {
-        enemies.remove(temp);
-        if(temp.kind == "Yellow") score += 50;
-        if(temp.kind == "Red") score += 80;
-        if(temp.kind == "Boss") score += 200;
-      }
-    }
- 
   }
   }
 }

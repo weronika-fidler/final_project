@@ -48,7 +48,6 @@ void draw(){
     }
      
 frameCounter++;
-print(frameCounter);
 print(" ");
     text("1UP", 15, 25);
     text( (int) score, 15 , 60);
