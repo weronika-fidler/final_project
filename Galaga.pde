@@ -20,6 +20,7 @@ void setup(){
   textFont(textFont);
   fill(255,0,0);
   init();
+  
 }
 
 
@@ -29,6 +30,13 @@ void draw(){
     for (int i = 0; i < startMenu.length ; i++){
       text(startMenu[i], 2 * width / 6, height / 4 + i * 45);
     }
+    if (score % 1250 == 0) {
+            generateEnemies();
+            framerate += 10;
+            chooseEnemiesToShoot();
+            
+        }
+
   }
   if(phase == 1){
     background(0);
