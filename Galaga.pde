@@ -47,9 +47,9 @@ void draw(){
       Enemy temp = enemies.get(i);
       image(temp.sprite, temp.position.x * 16, temp.position.y * 15 + 30  );
     }
-    if (score % 1250 == 0){
+    if (enemies.size() == 0){
       generateEnemies();
-      framerate = framerate + 10;
+      if (score != 0) framerate = framerate + 10;
     } 
   }
   }
@@ -118,7 +118,7 @@ void keyReleased() {
   }
 }
 
-static void generateEnemies(){
+void generateEnemies(){
     for (int i = -1 ; i < 2 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 0));}
    for (int i = 0 ; i < positionsFree.size(); ) {
      PVector pos = positionsFree.get(0);
