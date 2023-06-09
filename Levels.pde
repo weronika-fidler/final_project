@@ -48,7 +48,7 @@ void updatePauseScreen(){
    if  (pauseScreen[3].equals(pauseScreen[pauseScreenSelected])) exit();
  }
  
- void init(){
+void init(){
    phase = 0;
    onPause = false;
    keys = new int[4];
@@ -61,7 +61,7 @@ void updatePauseScreen(){
    score = 0;
    frameRate(framerate);
    player = new Player();
-   for (int i = -1 ; i < 2 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 0));}
+   /*for (int i = -1 ; i < 2 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 0));}
    for (int i = 0 ; i < positionsFree.size(); ) {
      PVector pos = positionsFree.get(0);
      Boss temp = new Boss();
@@ -84,5 +84,5 @@ void updatePauseScreen(){
      temp.position = pos;
      enemies.add(temp);
      positionsFree.remove(0);
-    }
+    }*/
 }
