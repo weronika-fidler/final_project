@@ -61,6 +61,7 @@ void init(){
    score = 0;
    frameRate(framerate);
    player = new Player();
+   generateEnemies();
    /*for (int i = -1 ; i < 2 ; i++) {positionsFree.add(new PVector(map[0].length/2 - 5 * i, 0));}
    for (int i = 0 ; i < positionsFree.size(); ) {
      PVector pos = positionsFree.get(0);
