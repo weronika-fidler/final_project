@@ -39,8 +39,10 @@ public class Enemy extends Entity{
     temp.position = new PVector(this.position.x, this.position.y);
     bullets.add(temp);
     }
-  }
-  void chooseEnemiesToShoot() {
+  
+  
+}
+void chooseEnemiesToShoot() {
         ArrayList<Enemy> selectedEnemies = new ArrayList<Enemy>();
         ArrayList<Enemy> availableEnemies = new ArrayList<Enemy>(enemies);
         
@@ -50,10 +52,15 @@ public class Enemy extends Entity{
         for (int i = 0 ; i < availableEnemies.size() ; i++){
           if (Math.random() < 0.5) selectedEnemies.add(availableEnemies.get(i));
         }
+        int numEnemiesToShoot = 3;
+        for (int i = 0; i < numEnemiesToShoot && availableEnemies.size() > 0; i++) {
+            int randomIndex = (int) random(availableEnemies.size());
+            Enemy enemyToShoot = availableEnemies.get(randomIndex);
+            selectedEnemies.add(enemyToShoot);
+            availableEnemies.remove(randomIndex);
+        }
         for (Enemy temp : selectedEnemies) temp.fire();
     }
-  
-
 
 
 public class Player extends Entity{
@@ -105,11 +112,7 @@ public class Boss extends Enemy{
   }
   
   
-  void fire(){
-  }
-  
-  void steal(){
-  }
+ 
   
 }
 
@@ -162,6 +165,7 @@ public class Bullet extends Entity{
         if(temp.kind == "Boss") score += 200;
       }
     }
+ 
   }
   }
 }
