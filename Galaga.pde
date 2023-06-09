@@ -11,6 +11,8 @@ PFont textFont;
 ArrayList<PVector> positionsFree = new ArrayList<PVector>();
 String playerName = "";
 String[] outScores;
+int frameCounter = 0;
+int shootingInterval = 60;
 
 
 void setup(){
@@ -21,7 +23,10 @@ void setup(){
   fill(255,0,0);
   init();
   
+  
+  
 }
+
 
 
 void draw(){
@@ -30,12 +35,11 @@ void draw(){
     for (int i = 0; i < startMenu.length ; i++){
       text(startMenu[i], 2 * width / 6, height / 4 + i * 45);
     }
-    if (score % 1250 == 0) {
-            generateEnemies();
-            framerate += 10;
-            chooseEnemiesToShoot();
-            
-        }
+    if (frameCounter >= shootingInterval) {
+    chooseEnemiesToShoot();
+    frameCounter = 0;
+  }
+  frameCounter++;
 
   }
   if(phase == 1){
