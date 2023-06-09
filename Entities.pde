@@ -40,6 +40,24 @@ public class Enemy extends Entity{
     bullets.add(temp);
     }
   }
+  void chooseEnemiesToShoot() {
+        ArrayList<Enemy> selectedEnemies = new ArrayList<Enemy>();
+        ArrayList<Enemy> availableEnemies = new ArrayList<Enemy>(enemies);
+
+        
+        int numEnemiesToShoot = 3;
+        for (int i = 0; i < numEnemiesToShoot && availableEnemies.size() > 0; i++) {
+            int randomIndex = (int) random(availableEnemies.size());
+            Enemy enemyToShoot = availableEnemies.get(randomIndex);
+            selectedEnemies.add(enemyToShoot);
+            availableEnemies.remove(randomIndex);
+        }
+
+        
+        for (Enemy enemy : selectedEnemies) {
+            enemy.fire();
+        }
+    }
   
 
 
