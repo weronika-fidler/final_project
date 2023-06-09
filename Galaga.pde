@@ -36,16 +36,20 @@ void draw(){
     for (int i = 0; i < startMenu.length ; i++){
       text(startMenu[i], 2 * width / 6, height / 4 + i * 45);
     }
-    if (frameCounter >= shootingInterval) {
-    chooseEnemiesToShoot();
-    frameCounter = 0;
-  }
-  frameCounter++;
+    
 
   }
   if(phase == 1){
     background(0);
     if (onPause == false){
+      if (frameCounter >= shootingInterval) {
+      chooseEnemiesToShoot();
+      frameCounter = 0;
+    }
+     
+frameCounter++;
+print(frameCounter);
+print(" ");
     text("1UP", 15, 25);
     text( (int) score, 15 , 60);
     image(player.sprite, player.position.x * 16, player.position.y * 15 + 30);
